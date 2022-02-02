@@ -63,10 +63,10 @@ function Simulator() {
     setPhoneNumber(localStorage.getItem("PHONE_NUMBER") || '')
   },[])
   return (
-    <div className="flex mx-12 h-[800px] flex">
-        <div className="my-4 mr-12 flex flex-col">
-            <div className="bg-android-phone bg-contain max-w-full w-[341px]">
-                <div className="w-[287px] flex h-[580px] my-8 mx-7 rounded-lg flex justify-center items-center">
+    <div className="flex sm:mx-12 flex-col-reverse sm:flex-row">
+        <div className="my-4 sm:mr-12 flex">
+            <div className="bg-android-phone bg-center flex justify-center items-center py-5 bg-no-repeat bg-contain max-w-full w-full sm:w-[341px]">
+                <div className="flex-1 max-w-[300px] flex h-[600px] my-5 rounded-lg justify-center items-center">
                     <div className="w-5/6 font-roboto text-white px-5 pt-5 pb-3 bg-[#424242] rounded-md">
                         {
                             loading ? (
@@ -88,23 +88,23 @@ function Simulator() {
                 </div>
             </div>
         </div>
-        <div>
+        <div className='px-5'>
             <div className="my-12">
                 <h1 className='text-white text-2xl font-bold'>USSD Simulator</h1>
             </div>
             <div>
                 <div>
-                    <div className="mb-7">
+                    <div className="mb-5">
                         <label for="phone-type" className="text-white text-sm font-semibold"><h4>Server URL</h4></label>
-                        <input value={serverUrl} onChange={(e)=>setServerUrl(e.target.value)} className="p-2 rounded w-96 mt-1" placeholder="http://localhost:3000/ussd/simulator"/>
+                        <input value={serverUrl} onChange={(e)=>setServerUrl(e.target.value)} className="p-2 rounded w-full sm:w-96 mt-1" placeholder="http://localhost:3000/ussd/simulator"/>
                     </div>
-                    <div className="mb-7">
+                    <div className="mb-5">
                         <label for="phone-type" className="text-white text-sm font-semibold"><h4>Phone Number</h4></label>
-                        <input value={phoneNumber} onChange={(e)=>setPhoneNumber(e.target.value)} className="p-2 rounded w-56 mt-1" placeholder="233558331258"/>
+                        <input value={phoneNumber} onChange={(e)=>setPhoneNumber(e.target.value)} className="p-2 rounded w-full sm:w-56 mt-1" placeholder="233558331258"/>
                     </div>
-                    <div className="mb-7">
+                    <div className="mb-5">
                         <label for="phone-type" className="text-white text-sm font-semibold"><h4>Response Label</h4></label>
-                        <input value={responseLabel} onChange={(e)=>setResponseLabel(e.target.value)} className="p-2 rounded w-36 mt-1" placeholder="userdata"/>
+                        <input value={responseLabel} onChange={(e)=>setResponseLabel(e.target.value)} className="p-2 rounded w-full sm:w-36 mt-1" placeholder="userdata"/>
                     </div>
                     <div className="mb-1">
                         <button onClick={saveConfig} className="py-2 px-3 text-white rounded bg-[steelblue] text-sm font-bold">Save Config</button>
