@@ -78,8 +78,16 @@ function Simulator() {
                                     <input value={query} onChange={(e)=>setQuery(e.target.value)} className="bg-transparent mb-1 border-b-[1px] border-solid border-[#FFFFFF61] text-white text-sm outline-none block w-full" autocomplete="off"></input>
                                     <p className="text-sm text-[#FF4C00] mb-1 hidden" id="ussd-error">Network Error</p>
                                     <div className="flex justify-between">
-                                        <button onClick={cancelUSSD} className="text-sm text-[#FF4C00] border-none bg-transparent uppercase font-roboto py-2 px-3 mx-2">Cancel</button>
-                                        <button onClick={sendRequest} className="text-sm text-[#FF4C00] border-none bg-transparent uppercase font-roboto py-2 px-3 mx-2">Send</button>
+                                        {
+                                            result?.mode?.toLowerCase()==="end"? (
+                                                <button onClick={cancelUSSD} className="text-sm text-[#FF4C00] border-none ml-auto bg-transparent uppercase font-roboto py-2 px-3 mx-2">Ok</button>
+                                            ):(
+                                                <>
+                                                    <button onClick={cancelUSSD} className="text-sm text-[#FF4C00] border-none bg-transparent uppercase font-roboto py-2 px-3 mx-2">Cancel</button>
+                                                    <button onClick={sendRequest} className="text-sm text-[#FF4C00] border-none bg-transparent uppercase font-roboto py-2 px-3 mx-2">Send</button>
+                                                </>
+                                            )
+                                        }
                                     </div>
                                 </>
                             )
