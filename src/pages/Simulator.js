@@ -4,7 +4,7 @@ import loadingIcon from '../assets/loading.png'
 
 function Simulator() {
   const [serverUrl, setServerUrl] = useState('');
-  const [responseLabel, setResponseLabel] = useState('');
+  const [responseLabel, setResponseLabel] = useState('userdata');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [loading, setLoading] = useState(false)
   const [query, setQuery] = useState('*100#');
@@ -25,7 +25,7 @@ function Simulator() {
     document.getElementById("ussd-error").innerHTML=err;
     document.getElementById("ussd-error").classList.remove("hidden")
     setTimeout(()=>{
-        document.getElementById("ussd-error").classList.remove("hidden")
+        document.getElementById("ussd-error").classList.add("hidden")
         document.getElementById("ussd-error").innerHTML = ""
     },2500)
   }
@@ -46,7 +46,7 @@ function Simulator() {
             console.log(response.data)
             setText(response.data[responseLabel])
         }catch(e){
-            showError(e.message)
+            showError("Error:", e.message)
         }finally{
             setLoading(false)
         }
@@ -59,7 +59,7 @@ function Simulator() {
 
   useEffect(()=>{
     setServerUrl(localStorage.getItem("SERVER_URL") || '')
-    setResponseLabel(localStorage.getItem("RESPONSE_LABEL") || '')
+    setResponseLabel(localStorage.getItem("RESPONSE_LABEL") || 'userdata')
     setPhoneNumber(localStorage.getItem("PHONE_NUMBER") || '')
   },[])
   return (
