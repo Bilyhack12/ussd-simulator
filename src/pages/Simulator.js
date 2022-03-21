@@ -75,7 +75,7 @@ function Simulator() {
                                 </div>):(
                                 <>
                                     <div className="text-sm mb-4" id='menu-text' dangerouslySetInnerHTML={{__html: text || "Dial a code"}}></div>
-                                    <input value={query} onChange={(e)=>setQuery(e.target.value)} className="bg-transparent mb-1 border-b-[1px] border-solid border-[#FFFFFF61] text-white text-sm outline-none block w-full" autocomplete="off"></input>
+                                    {result?.mode?.toLowerCase()!=="end" && <input value={query} onChange={(e)=>setQuery(e.target.value)} className="bg-transparent mb-1 border-b-[1px] border-solid border-[#FFFFFF61] text-white text-sm outline-none block w-full" autocomplete="off"></input>}
                                     <p className="text-sm text-[#FF4C00] mb-1 hidden" id="ussd-error">Network Error</p>
                                     <div className="flex justify-between">
                                         {
